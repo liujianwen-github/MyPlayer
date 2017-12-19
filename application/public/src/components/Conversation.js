@@ -12,19 +12,25 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_native_1 = require("react-native");
-var SearchMusic = /** @class */ (function (_super) {
-    __extends(SearchMusic, _super);
-    function SearchMusic() {
+/**
+ * 社交模块
+ *
+ * @export
+ * @class Conversation
+ * @extends {Component}
+ */
+var Conversation = /** @class */ (function (_super) {
+    __extends(Conversation, _super);
+    function Conversation() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.state = {};
         return _this;
     }
-    SearchMusic.prototype.render = function () {
+    Conversation.prototype.render = function () {
         return (<react_native_1.View>
-         <react_native_1.Text>searchMusic</react_native_1.Text>
+         <react_native_1.Text>conversation</react_native_1.Text>
        </react_native_1.View>);
     };
-    return SearchMusic;
+    return Conversation;
 }(React.Component));
-exports.default = SearchMusic;
-//# sourceMappingURL=SearchMusic.js.map
+exports.default = Conversation;

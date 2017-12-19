@@ -12,19 +12,36 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_native_1 = require("react-native");
-var SearchMusic = /** @class */ (function (_super) {
-    __extends(SearchMusic, _super);
-    function SearchMusic() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.state = {};
-        return _this;
+var Navigation = require("react-navigation");
+/**
+ * 我的消息
+ *
+ *
+ * @class MyNews
+ * @extends {React.Component}
+ */
+var MyNews = /** @class */ (function (_super) {
+    __extends(MyNews, _super);
+    function MyNews() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
-    SearchMusic.prototype.render = function () {
+    MyNews.prototype.render = function () {
         return (<react_native_1.View>
-         <react_native_1.Text>searchMusic</react_native_1.Text>
+         <react_native_1.Text>mynews</react_native_1.Text>
        </react_native_1.View>);
     };
-    return SearchMusic;
+    return MyNews;
 }(React.Component));
-exports.default = SearchMusic;
-//# sourceMappingURL=SearchMusic.js.map
+//  stack配置
+var newsStack = Navigation.StackNavigator({
+    Home: {
+        screen: MyNews,
+        navigationOptions: function (_a) {
+            var navigation = _a.navigation;
+            return ({
+                title: "我的消息",
+            });
+        }
+    }
+}, {});
+exports.default = newsStack;

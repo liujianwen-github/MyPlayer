@@ -12,8 +12,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_native_1 = require("react-native");
-var react_redux_1 = require("react-redux");
-// let store = configureStore(()=>{console.log('store创建参数')})
+// const configureStore = 
 // components
 var BaseDrawer_1 = require("./UI/BaseDrawer");
 /**
@@ -25,20 +24,13 @@ var BaseDrawer_1 = require("./UI/BaseDrawer");
  */
 var default_1 = /** @class */ (function (_super) {
     __extends(default_1, _super);
-    function default_1(props) {
-        var _this = _super.call(this, props) || this;
-        _this.state = {
-            isLoading: true,
-            store: '1'
-        };
-        return _this;
+    function default_1() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     default_1.prototype.render = function () {
-        return (<react_redux_1.Provider store={this.state.store}>
-        <react_native_1.View style={styles.container}>
-          <BaseDrawer_1.default />
-        </react_native_1.View>
-      </react_redux_1.Provider>);
+        return (<react_native_1.View style={styles.container}>
+        <BaseDrawer_1.default />
+      </react_native_1.View>);
     };
     return default_1;
 }(React.Component));
@@ -50,4 +42,3 @@ var styles = react_native_1.StyleSheet.create({
     },
     safeArea: {}
 });
-//# sourceMappingURL=Main.js.map

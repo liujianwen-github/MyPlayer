@@ -34,3 +34,4 @@ exports.default = BaseNav;
 var MainDrawer = Navigation.DrawerNavigator({
     Home: {}
 });
+//# sourceMappingURL=BaseNav.js.map

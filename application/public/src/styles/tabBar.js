@@ -11,4 +11,3 @@ var tabBar = {
     }
 };
 exports.default = react_native_1.StyleSheet.create(tabBar);
-//# sourceMappingURL=tabBar.js.map

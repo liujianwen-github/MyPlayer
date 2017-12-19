@@ -34,3 +34,4 @@ var Conversation = /** @class */ (function (_super) {
     return Conversation;
 }(React.Component));
 exports.default = Conversation;
+//# sourceMappingURL=Conversation.js.map

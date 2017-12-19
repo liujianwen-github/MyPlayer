@@ -12,19 +12,23 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_native_1 = require("react-native");
-var SearchMusic = /** @class */ (function (_super) {
-    __extends(SearchMusic, _super);
-    function SearchMusic() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.state = {};
-        return _this;
+/**
+ * 个人模块
+ *
+ * @export
+ * @class Personal
+ * @extends {Component}
+ */
+var Personal = /** @class */ (function (_super) {
+    __extends(Personal, _super);
+    function Personal() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
-    SearchMusic.prototype.render = function () {
+    Personal.prototype.render = function () {
         return (<react_native_1.View>
-         <react_native_1.Text>searchMusic</react_native_1.Text>
+         <react_native_1.Text>personal</react_native_1.Text>
        </react_native_1.View>);
     };
-    return SearchMusic;
+    return Personal;
 }(React.Component));
-exports.default = SearchMusic;
-//# sourceMappingURL=SearchMusic.js.map
+exports.default = Personal;

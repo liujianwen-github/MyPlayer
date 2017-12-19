@@ -64,4 +64,3 @@ var MainDrawer = Navigation.DrawerNavigator({
     }
 });
 exports.default = MainDrawer;
-//# sourceMappingURL=BaseDrawer.js.map

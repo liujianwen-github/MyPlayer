@@ -9,4 +9,3 @@ var theme = {
     color: 'white'
 };
 exports.default = theme;
-//# sourceMappingURL=ChineseRed.js.map

@@ -12,19 +12,25 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_native_1 = require("react-native");
-var SearchMusic = /** @class */ (function (_super) {
-    __extends(SearchMusic, _super);
-    function SearchMusic() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.state = {};
-        return _this;
+var Navigation = require("react-navigation");
+/**
+ * 根导航目录
+ *
+ * @export
+ * @class BaseNav
+ * @extends {React.Component}
+ */
+var BaseNav = /** @class */ (function (_super) {
+    __extends(BaseNav, _super);
+    function BaseNav() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
-    SearchMusic.prototype.render = function () {
-        return (<react_native_1.View>
-         <react_native_1.Text>searchMusic</react_native_1.Text>
-       </react_native_1.View>);
+    BaseNav.prototype.render = function () {
+        return (<react_native_1.View></react_native_1.View>);
     };
-    return SearchMusic;
+    return BaseNav;
 }(React.Component));
-exports.default = SearchMusic;
-//# sourceMappingURL=SearchMusic.js.map
+exports.default = BaseNav;
+var MainDrawer = Navigation.DrawerNavigator({
+    Home: {}
+});

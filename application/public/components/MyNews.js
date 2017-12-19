@@ -45,3 +45,4 @@ var newsStack = Navigation.StackNavigator({
     }
 }, {});
 exports.default = newsStack;
+//# sourceMappingURL=MyNews.js.map

@@ -32,3 +32,4 @@ var Personal = /** @class */ (function (_super) {
     return Personal;
 }(React.Component));
 exports.default = Personal;
+//# sourceMappingURL=Personal.js.map

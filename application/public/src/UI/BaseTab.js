@@ -60,4 +60,3 @@ var BaseTab = Navigation.TabNavigator({
     }
 });
 exports.default = BaseTab;
-//# sourceMappingURL=BaseTab.js.map
