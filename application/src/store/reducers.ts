@@ -1,49 +1,25 @@
 import * as TYPES from './types';
 import * as Redux from 'redux'
+import {ADDUSER} from './types'
 
-const initialState = {
-	isLoggedIn: false,
-	user: {},
-	status: null,
-};
-
+const initialState={
+	// name:'default',
+	users:[]
+}
 function userReducers(state=initialState, action){
 
 	switch(action.type){
-		case TYPES.LOGGED_DOING:
+		case ADDUSER:
+			state.users.push[action.user]
 			return {
 				...state,
-				status: 'doing'
+				status: 'added'
 			};
-
-		case TYPES.LOGGED_IN:
-			return {
-				...state,
-				isLoggedIn: true,
-				user: action.user,
-				status: 'done'
-			};
-
-		case TYPES.LOGGED_OUT:
-			return {
-				...state,
-				isLoggedIn: false,
-				user: {},
-				status: null
-			};
-		case TYPES.LOGGED_ERROR:
-			return {
-				...state,
-				isLoggedIn: false,
-				user: {},
-				status: null
-			}
-
 		default: 
 			return state;
 	}
 
 }
 export default Redux.combineReducers({
-  userStore:userReducers
+  userReducers
 })

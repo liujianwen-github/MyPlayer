@@ -4,8 +4,8 @@ import {
   View,
   Text
 } from 'react-native'
-import { Provider } from 'react-redux'
-import configureStore from './store/store'
+import {connect} from 'react-redux'
+// import configureStore from './store/store'
 // let store = configureStore(()=>{console.log('store创建参数')})
 // components
 import MainLayout from './UI/BaseDrawer'
@@ -21,21 +21,16 @@ interface MainStates{
  * @class
  * @extends {React.Component}
  */
-export default class  extends React.Component<MainProps,MainStates> {
+class Main extends React.Component<MainProps,MainStates> {
   constructor(props){
     super(props)
-    this.state = {
-      isLoading:true,
-      store:'1'
-    }
   }
+  
   render():JSX.Element {
     return (
-      <Provider store={this.state.store}>
         <View style={styles.container}>
           <MainLayout/>
         </View>
-      </Provider>
     )
   }
 }
@@ -51,3 +46,11 @@ const styles = StyleSheet.create({
     // flexDirection:"column"
   }
 })
+function select(store){
+  return {
+      isLoggedIn: store.userStore.isLoggedIn,
+      user: store.userStore.user,
+      status: store.userStore.status,
+  }
+}
+export default connect(select)(Main)

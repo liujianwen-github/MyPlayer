@@ -5,6 +5,7 @@
  */
 
 import React, { Component } from 'react';
+import {Provider} from 'react-redux'
 import {
   Platform,
   StyleSheet,
@@ -12,19 +13,17 @@ import {
   View
 } from 'react-native';
 import Main from './application/public/Main'
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
+// import configureStore from './application/public/store/store'
+import store from './application/public/store/store'
+// const store = configureStore();
 export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Main/>
-      </View>
+      // <Provider store={store}>
+        <View style={styles.container}>
+          <Main/>
+        </View>
+      // </Provider>
     );
   }
 }
@@ -47,3 +46,11 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+//redux
+// function select(store){
+//   return {
+//       isLoggedIn: store.userStore.isLoggedIn,
+//       user: store.userStore.user,
+//       status: store.userStore.status,
+//   }
+// }

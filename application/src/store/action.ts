@@ -1,6 +1,7 @@
-import { AlertIOS } from 'react-native';
+// import { AlertIOS } from 'react-native';
 
 import * as TYPES from './types';
+import {userStore} from './store'
 
 // fake user data
 let testUser = {
@@ -17,33 +18,23 @@ let skipUser = {
 };
 
 // login
-export function logIn(opt){
-	return (dispatch) => {
-		dispatch({'type': TYPES.LOGGED_DOING});
-		// let inner_get = fetch('http://www.baidu.com')
-		// 	.then((res)=>{
-		// 		dispatch({'type': TYPES.LOGGED_IN, user: testUser});
-		// 	}).catch((e)=>{
-		// 		AlertIOS.alert(e.message);
-		// 		dispatch({'type': TYPES.LOGGED_ERROR, error: e});
-		// 	});
+// export function logIn(opt){
+// 	return (dispatch) => {
+// 		dispatch({'type': TYPES.LOGGED_DOING});
+// 		// let inner_get = fetch('http://www.baidu.com')
+// 		// 	.then((res)=>{
+// 		// 		dispatch({'type': TYPES.LOGGED_IN, user: testUser});
+// 		// 	}).catch((e)=>{
+// 		// 		AlertIOS.alert(e.message);
+// 		// 		dispatch({'type': TYPES.LOGGED_ERROR, error: e});
+// 		// 	});
+// 	}
+// }
+export function addUser(newUser){
+	return ()=>{
+		userStore.dispatch({type:TYPES.ADDUSER,user:newUser})
 	}
 }
 
 
 
-// skip login
-export function skipLogin(){
-	return {
-		'type': TYPES.LOGGED_IN,
-		'user': skipUser,
-	}
-}
-
-
-// logout
-export function logOut(){
-	return {
-		'type': TYPES.LOGGED_OUT
-	}
-}

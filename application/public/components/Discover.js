@@ -12,24 +12,36 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_native_1 = require("react-native");
-/**
- * 发现模块
- *
- * @export
- * @class Discover
- * @extends {Component}
- */
+var react_redux_1 = require("react-redux");
 var Discover = /** @class */ (function (_super) {
     __extends(Discover, _super);
-    function Discover() {
-        return _super !== null && _super.apply(this, arguments) || this;
+    function Discover(props) {
+        var _this = _super.call(this, props) || this;
+        _this.state = {
+            username: 'sup1',
+            password: '12345we6',
+            btnFlag: true,
+        };
+        _this.btnfn.bind(_this);
+        return _this;
     }
+    Discover.prototype.btnfn = function () {
+        console.log(this);
+    };
     Discover.prototype.render = function () {
         return (<react_native_1.View>
          <react_native_1.Text>discover</react_native_1.Text>
+         <react_native_1.Button title="12" onPress={function () { console.log('11'); }}/>
        </react_native_1.View>);
     };
     return Discover;
 }(React.Component));
-exports.default = Discover;
+function select(store) {
+    return {
+        isLoggedIn: store.userStore.isLoggedIn,
+        user: store.userStore.user,
+        status: store.userStore.status,
+    };
+}
+exports.default = react_redux_1.connect(select)(Discover);
 //# sourceMappingURL=Discover.js.map

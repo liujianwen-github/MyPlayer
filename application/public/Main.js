@@ -13,6 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_native_1 = require("react-native");
 var react_redux_1 = require("react-redux");
+// import configureStore from './store/store'
 // let store = configureStore(()=>{console.log('store创建参数')})
 // components
 var BaseDrawer_1 = require("./UI/BaseDrawer");
@@ -23,26 +24,18 @@ var BaseDrawer_1 = require("./UI/BaseDrawer");
  * @class
  * @extends {React.Component}
  */
-var default_1 = /** @class */ (function (_super) {
-    __extends(default_1, _super);
-    function default_1(props) {
-        var _this = _super.call(this, props) || this;
-        _this.state = {
-            isLoading: true,
-            store: '1'
-        };
-        return _this;
+var Main = /** @class */ (function (_super) {
+    __extends(Main, _super);
+    function Main(props) {
+        return _super.call(this, props) || this;
     }
-    default_1.prototype.render = function () {
-        return (<react_redux_1.Provider store={this.state.store}>
-        <react_native_1.View style={styles.container}>
+    Main.prototype.render = function () {
+        return (<react_native_1.View style={styles.container}>
           <BaseDrawer_1.default />
-        </react_native_1.View>
-      </react_redux_1.Provider>);
+        </react_native_1.View>);
     };
-    return default_1;
+    return Main;
 }(React.Component));
-exports.default = default_1;
 var styles = react_native_1.StyleSheet.create({
     container: {
         flex: 1,
@@ -50,4 +43,12 @@ var styles = react_native_1.StyleSheet.create({
     },
     safeArea: {}
 });
+function select(store) {
+    return {
+        isLoggedIn: store.userStore.isLoggedIn,
+        user: store.userStore.user,
+        status: store.userStore.status,
+    };
+}
+exports.default = react_redux_1.connect(select)(Main);
 //# sourceMappingURL=Main.js.map

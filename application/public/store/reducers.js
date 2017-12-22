@@ -8,29 +8,23 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
     return t;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var TYPES = require("./types");
 var Redux = require("redux");
+var types_1 = require("./types");
 var initialState = {
-    isLoggedIn: false,
-    user: {},
-    status: null,
+    // name:'default',
+    users: []
 };
 function userReducers(state, action) {
     if (state === void 0) { state = initialState; }
     switch (action.type) {
-        case TYPES.LOGGED_DOING:
-            return __assign({}, state, { status: 'doing' });
-        case TYPES.LOGGED_IN:
-            return __assign({}, state, { isLoggedIn: true, user: action.user, status: 'done' });
-        case TYPES.LOGGED_OUT:
-            return __assign({}, state, { isLoggedIn: false, user: {}, status: null });
-        case TYPES.LOGGED_ERROR:
-            return __assign({}, state, { isLoggedIn: false, user: {}, status: null });
+        case types_1.ADDUSER:
+            state.users.push[action.user];
+            return __assign({}, state, { status: 'added' });
         default:
             return state;
     }
 }
 exports.default = Redux.combineReducers({
-    userStore: userReducers
+    userReducers: userReducers
 });
 //# sourceMappingURL=reducers.js.map
