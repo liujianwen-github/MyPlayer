@@ -4,8 +4,8 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import {Provider} from 'react-redux'
+import React from 'react';
+import {Provider} from 'react-redux/dist/react-redux'
 import {
   Platform,
   StyleSheet,
@@ -16,18 +16,26 @@ import Main from './application/public/Main'
 // import configureStore from './application/public/store/store'
 import store from './application/public/store/store'
 // const store = configureStore();
-export default class App extends Component {
+// export default class App extends React.Component {
+//   render() {
+//     return (
+//         <View style={styles.container}>
+//           <Main/>
+//         </View>
+//     );
+//   }
+// }
+export default class App extends React.Component{
   render() {
-    return (
-      // <Provider store={store}>
+    return(
+      <Provider store={store}>
         <View style={styles.container}>
           <Main/>
         </View>
-      // </Provider>
-    );
+      </Provider>  
+    )
   }
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -46,11 +54,3 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
-//redux
-// function select(store){
-//   return {
-//       isLoggedIn: store.userStore.isLoggedIn,
-//       user: store.userStore.user,
-//       status: store.userStore.status,
-//   }
-// }

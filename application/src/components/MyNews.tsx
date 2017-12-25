@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { 
   View,
-  Text
+  Text,
+  Button
  } from 'react-native';
  import * as Navigation from 'react-navigation';
  /**
@@ -11,11 +12,24 @@ import {
   * @class MyNews
   * @extends {React.Component}
   */
- class MyNews extends React.Component {
+ class MyNews extends React.Component<any,any> {
+   constructor(props){
+     super(props)
+     this.go = this.go.bind(this)
+   }
+   go(){
+    const {navigate} = this.props.navigation
+    console.log('1')
+    navigate('Home')
+   }
    render():JSX.Element {
      return (
        <View>
          <Text>mynews</Text>
+         <Button 
+         title="go"
+         onPress={this.go}
+         ></Button>
        </View>
      );
    }
@@ -26,6 +40,7 @@ import {
      screen:MyNews,
      navigationOptions:({navigation})=>({
        title:"我的消息",
+      //  headerBackTitle:null
      })
    }
  },{})

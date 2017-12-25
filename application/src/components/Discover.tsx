@@ -5,7 +5,6 @@ import {
   Button
  } from 'react-native';
  import {connect} from 'react-redux';
- import {logIn,skipLogin} from '../store/action'
 /**
  * 发现模块
  * 
@@ -44,11 +43,18 @@ class Discover extends React.Component<DiscoverProps,DiscoverStates> {
      );
    }
  }
- function select(store){
-  return {
-      isLoggedIn: store.userStore.isLoggedIn,
-      user: store.userStore.user,
-      status: store.userStore.status,
+ const mapStateToProps = (state,props)=>{
+  console.log('state!!!!!!')
+  console.log(state)
+  return{
+    users:state.users
   }
 }
-export default connect(select)(Discover)
+const mapDispatchToProps = (dispatch,props)=>{
+  return{
+    addUser:(arg)=>dispatch({type:"ADDUSER",userName:arg})
+  }
+}
+const UIDiscover = connect(mapStateToProps,mapDispatchToProps)(Discover)
+export default UIDiscover
+// export default Discover

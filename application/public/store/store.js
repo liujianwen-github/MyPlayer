@@ -33,5 +33,6 @@ var initialState = {
 // 	// persistStore(store, opt, onComplete);//store存储到本地
 // 	return store;
 // }
-exports.userStore = redux_1.createStore(reducers_1.default, initialState, redux_1.applyMiddleware.apply(void 0, middlewares));
+var userStore = redux_1.createStore(reducers_1.default, initialState, redux_1.applyMiddleware.apply(void 0, middlewares));
+exports.default = userStore;
 //# sourceMappingURL=store.js.map

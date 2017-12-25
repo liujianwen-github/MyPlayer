@@ -22,12 +22,20 @@ var Navigation = require("react-navigation");
  */
 var MyNews = /** @class */ (function (_super) {
     __extends(MyNews, _super);
-    function MyNews() {
-        return _super !== null && _super.apply(this, arguments) || this;
+    function MyNews(props) {
+        var _this = _super.call(this, props) || this;
+        _this.go = _this.go.bind(_this);
+        return _this;
     }
+    MyNews.prototype.go = function () {
+        var navigate = this.props.navigation.navigate;
+        console.log('1');
+        navigate('Home');
+    };
     MyNews.prototype.render = function () {
         return (<react_native_1.View>
          <react_native_1.Text>mynews</react_native_1.Text>
+         <react_native_1.Button title="go" onPress={this.go}></react_native_1.Button>
        </react_native_1.View>);
     };
     return MyNews;

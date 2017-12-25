@@ -1,18 +1,19 @@
 import * as TYPES from './types';
 import * as Redux from 'redux'
 import {ADDUSER} from './types'
+import {cloneDeep} from '../common'
 
 const initialState={
 	// name:'default',
 	users:[]
 }
-function userReducers(state=initialState, action){
-
+function userReducers(state, action){
 	switch(action.type){
 		case ADDUSER:
-			state.users.push[action.user]
+			let newState = cloneDeep(state)
+			newState.users.push(action.user)
 			return {
-				...state,
+				...newState,
 				status: 'added'
 			};
 		default: 
@@ -20,6 +21,7 @@ function userReducers(state=initialState, action){
 	}
 
 }
-export default Redux.combineReducers({
-  userReducers
-})
+export default userReducers
+// export default Redux.combineReducers({
+//   userReducers
+// })

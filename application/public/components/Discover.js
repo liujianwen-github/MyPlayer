@@ -36,12 +36,19 @@ var Discover = /** @class */ (function (_super) {
     };
     return Discover;
 }(React.Component));
-function select(store) {
+var mapStateToProps = function (state, props) {
+    console.log('state!!!!!!');
+    console.log(state);
     return {
-        isLoggedIn: store.userStore.isLoggedIn,
-        user: store.userStore.user,
-        status: store.userStore.status,
+        users: state.users
     };
-}
-exports.default = react_redux_1.connect(select)(Discover);
+};
+var mapDispatchToProps = function (dispatch, props) {
+    return {
+        addUser: function (arg) { return dispatch({ type: "ADDUSER", userName: arg }); }
+    };
+};
+var UIDiscover = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Discover);
+exports.default = UIDiscover;
+// export default Discover 
 //# sourceMappingURL=Discover.js.map

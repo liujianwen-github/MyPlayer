@@ -12,7 +12,6 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_native_1 = require("react-native");
-var react_redux_1 = require("react-redux");
 // import configureStore from './store/store'
 // let store = configureStore(()=>{console.log('store创建参数')})
 // components
@@ -36,6 +35,7 @@ var Main = /** @class */ (function (_super) {
     };
     return Main;
 }(React.Component));
+exports.default = Main;
 var styles = react_native_1.StyleSheet.create({
     container: {
         flex: 1,
@@ -43,12 +43,4 @@ var styles = react_native_1.StyleSheet.create({
     },
     safeArea: {}
 });
-function select(store) {
-    return {
-        isLoggedIn: store.userStore.isLoggedIn,
-        user: store.userStore.user,
-        status: store.userStore.status,
-    };
-}
-exports.default = react_redux_1.connect(select)(Main);
 //# sourceMappingURL=Main.js.map

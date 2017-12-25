@@ -36,4 +36,5 @@ const initialState={
 // 	// persistStore(store, opt, onComplete);//store存储到本地
 // 	return store;
 // }
-export const userStore = createStore(reducers,initialState,applyMiddleware(...middlewares))
+const userStore = createStore(reducers,initialState,applyMiddleware(...middlewares))
+export default userStore

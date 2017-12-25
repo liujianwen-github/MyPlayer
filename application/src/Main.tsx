@@ -4,7 +4,7 @@ import {
   View,
   Text
 } from 'react-native'
-import {connect} from 'react-redux'
+
 // import configureStore from './store/store'
 // let store = configureStore(()=>{console.log('store创建参数')})
 // components
@@ -21,7 +21,7 @@ interface MainStates{
  * @class
  * @extends {React.Component}
  */
-class Main extends React.Component<MainProps,MainStates> {
+export default class Main extends React.Component<MainProps,MainStates> {
   constructor(props){
     super(props)
   }
@@ -46,11 +46,3 @@ const styles = StyleSheet.create({
     // flexDirection:"column"
   }
 })
-function select(store){
-  return {
-      isLoggedIn: store.userStore.isLoggedIn,
-      user: store.userStore.user,
-      status: store.userStore.status,
-  }
-}
-export default connect(select)(Main)
