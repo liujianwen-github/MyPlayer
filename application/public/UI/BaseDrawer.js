@@ -51,7 +51,7 @@ var MainDrawer = Navigation.DrawerNavigator({
         }
     }
 }, {
-    drawerWidth: 200,
+    drawerWidth: 260,
     drawerPosition: 'left',
     // contentComponent: 自定义目录
     initialRouteName: "DrawerDefault",

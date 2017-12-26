@@ -1,9 +1,9 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ViewStyle } from 'react-native';
 /**
  * TabNavigator样式
  */
 const tabBar = {
-  tabBarItem:{
+  tabBarItem:<ViewStyle>{
     height:24,
     width:24
   }

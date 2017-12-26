@@ -11,11 +11,12 @@ function userReducers(state, action){
 	switch(action.type){
 		case ADDUSER:
 			let newState = cloneDeep(state)
+			console.log('====================================');
+			console.log(newState===state)
+			console.log(action)
+			console.log('====================================');
 			newState.users.push(action.user)
-			return {
-				...newState,
-				status: 'added'
-			};
+			return newState;
 		default: 
 			return state;
 	}

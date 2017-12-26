@@ -2,59 +2,94 @@ import * as React from 'react';
 import { 
   View,
   Text,
-  Button
+  Button,
+  TextInput,
+  FlatList
  } from 'react-native';
  import {connect} from 'react-redux';
-/**
- * 发现模块
- * 
- * @export
- * @class Discover
- * @extends {Component}
- */
+
 interface DiscoverProps{}
-interface DiscoverStates{
-  username:string,
-  password:string,
-  btnFlag:boolean
+interface DiscoverStates{}
+interface UIDiscoverProps{
+  addUser:any,
+  users:Array<string>
 }
-class Discover extends React.Component<DiscoverProps,DiscoverStates> {
+interface UIDiscoverStates{
+  text:string
+}
+/**
+ * redux UI组件
+ * 
+ * @class UIDiscover
+ * @extends {React.Component<null, null>}
+ */
+class UIDiscover extends React.Component<UIDiscoverProps,UIDiscoverStates>{
   constructor(props){
     super(props)
     this.state = {
-      username: 'sup1',
-      password: '12345we6',
-      btnFlag: true,
-    };
-    this.btnfn.bind(this)
+      text:''
+    }
+    this.btnfn = this.btnfn.bind(this)     
   }
   btnfn(){
-    console.log(this)
+   console.log(this)
+   const {addUser} = this.props
+   let user = this.state.text
+   addUser(user)
+   this.setState({text:''})
+   console.log(this.state)
+ }
+  render(){
+    return(
+      <View>
+        <TextInput
+         style={{height: 40}}
+         placeholder="Type here to translate!"
+         onChangeText={(text) => this.setState({text})}
+         value={this.state.text}
+       />
+        <Button
+         title="12"
+         onPress={this.btnfn}
+        />
+        <FlatList
+         data={this.props.users}
+         renderItem={({item}) => <Text>{item}</Text>}
+       />
+      </View>
+    )
+  }
+}
+/**
+ * 输出Discover组件
+ * 
+ * @class Discover
+ * @extends {React.Component<DiscoverProps, DiscoverStates>}
+ */
+export default class Discover extends React.Component<DiscoverProps,DiscoverStates> {
+  constructor(props){
+    super(props)
   }
    render():JSX.Element {
      return (
        <View>
          <Text>discover</Text>
-         <Button
-          title="12"
-          onPress={()=>{console.log('11')}}
-         />
+         <UI/>
        </View>
      );
    }
  }
+ 
  const mapStateToProps = (state,props)=>{
-  console.log('state!!!!!!')
-  console.log(state)
   return{
     users:state.users
   }
 }
 const mapDispatchToProps = (dispatch,props)=>{
   return{
-    addUser:(arg)=>dispatch({type:"ADDUSER",userName:arg})
+    addUser:(arg)=>dispatch({type:"ADD_USER",user:arg})
   }
 }
-const UIDiscover = connect(mapStateToProps,mapDispatchToProps)(Discover)
-export default UIDiscover
+const UI = connect(mapStateToProps,mapDispatchToProps)(UIDiscover)
+// export default UIDiscover
 // export default Discover

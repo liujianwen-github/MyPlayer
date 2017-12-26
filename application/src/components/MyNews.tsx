@@ -2,9 +2,14 @@ import * as React from 'react';
 import { 
   View,
   Text,
-  Button
+  Button,
+  FlatList
  } from 'react-native';
  import * as Navigation from 'react-navigation';
+ import {connect} from 'react-redux'
+
+ interface MyNewsProps{}
+ interface MyNewsState{}
  /**
   * 我的消息
   * 
@@ -29,15 +34,25 @@ import {
          <Button 
          title="go"
          onPress={this.go}
-         ></Button>
+         />
+         <FlatList
+         data={this.props.users}
+         renderItem={({item}) => <Text>{item}</Text>}
+        />
        </View>
      );
    }
  }
+ const mapStateToProps=(state,props)=>{
+   return{
+     users:state.users
+   }
+ }
+ const UINews = connect(mapStateToProps)(MyNews)
 //  stack配置
  const newsStack = Navigation.StackNavigator({
    Home:{
-     screen:MyNews,
+     screen:UINews,
      navigationOptions:({navigation})=>({
        title:"我的消息",
       //  headerBackTitle:null
