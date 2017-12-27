@@ -40,6 +40,7 @@ var UIDiscover = /** @class */ (function (_super) {
     UIDiscover.prototype.render = function () {
         var _this = this;
         return (<react_native_1.View>
+        
         <react_native_1.TextInput style={{ height: 40 }} placeholder="Type here to translate!" onChangeText={function (text) { return _this.setState({ text: text }); }} value={this.state.text}/>
         <react_native_1.Button title="12" onPress={this.btnfn}/>
         <react_native_1.FlatList data={this.props.users} renderItem={function (_a) {

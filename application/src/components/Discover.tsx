@@ -4,7 +4,8 @@ import {
   Text,
   Button,
   TextInput,
-  FlatList
+  FlatList,
+  TouchableHighlight
  } from 'react-native';
  import {connect} from 'react-redux';
 
@@ -42,6 +43,12 @@ class UIDiscover extends React.Component<UIDiscoverProps,UIDiscoverStates>{
   render(){
     return(
       <View>
+        {/* <TouchableHighlight onPress={this._onPressButton}>
+          <Image
+            style={styles.button}
+            source={require('./button.png')}
+          />
+        </TouchableHighlight> */}
         <TextInput
          style={{height: 40}}
          placeholder="Type here to translate!"
